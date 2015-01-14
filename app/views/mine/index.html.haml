@@ -1,0 +1,16 @@
+.container
+  .row.mine{ng: {controller: 'MineCtrl', init: "followers=#{@followers.to_json}"}}
+    .mine-button
+      %button.btn.btn-success{ng: {click: 'mine()'}}
+        Mine users 1 level
+    %h1
+      {{followers.length}}
+    .follower{ng: {repeat: 'follower in followers', click: 'follower.selected=!!!follower.selected'}, class: 'selected-{{follower.selected}}'}
+      %img{ng: {src: '{{follower.profile_picture}}'}, class: 'pull-left'}
+      {{follower.username}}
+      {{follower.bio}}
+      %h1
+        {{follower.full_name}}
+      %a{href: 'http://instagram.com/{{follower.username}}'} Instagram profile
+      .clearfix
+

@@ -1,0 +1,58 @@
+%div{ng: {controller: 'BatchesCtrl', init: "batches=#{batches_json(@batches)}; init()"}}
+  %h1
+    At average {{totalFollowedBack / (batches[-1].created_at|timeDifference:batches[0].created_at)}} new followers per day
+    %button.btn.btn-success{ng: {click: 'followNewBatch()'}} 
+      Follow new batch
+  %table.table.table-striped
+    %tr
+      %th
+        Batch ID
+      %th
+        Created at
+      %th
+        Unfollowed not followers
+      %th
+        Unfollowed all
+      %th
+        Followed back
+      %th
+        Total users
+      %th
+        Conversion rate
+    %tr{ng: {repeat: 'batch in batches'}}
+      %td
+        {{batch.id}}
+      %td
+        {{batch.created_at|relativeTimeFormat}}
+      %td
+        %div{ng: {show: 'batch.unfollowed_not_followers'}}
+          {{batch.unfollowed_not_followers|relativeTimeFormat}}
+        %div{ng: {hide: 'batch.unfollowed_not_followers'}}
+          %button.btn.btn-success{ng: {click: 'unfollowBatch(batch)'}} 
+            Unfollow
+      %td
+        {{batch.unfollowed}}
+      %td
+        {{batch.followed_back}}
+      %td
+        {{batch.users_count}}
+      %td
+        {{batch.followed_back / batch.users_count * 100}}%
+    %tr
+      %td
+        %strong
+          TOTAL:
+      %td
+        %strong
+          {{batches[-1].created_at|timeDifference:batches[0].created_at}} days
+      %td
+      %td
+      %td
+        %strong
+          {{totalFollowedBack}}
+      %td
+        %strong
+          {{totalFollowed}}
+      %td
+        %strong
+          {{totalFollowedBack / totalFollowed * 100}}%

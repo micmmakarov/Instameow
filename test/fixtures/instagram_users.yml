@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  instagram_id: MyString
+  image_url: MyString
+  comment: MyString
+  name: MyString
+  instagram_name: MyString
+  followed: 2014-04-14 21:32:00
+  unfollowed: 2014-04-14 21:32:00
+  followed_back: false
+
+two:
+  instagram_id: MyString
+  image_url: MyString
+  comment: MyString
+  name: MyString
+  instagram_name: MyString
+  followed: 2014-04-14 21:32:00
+  unfollowed: 2014-04-14 21:32:00
+  followed_back: false
