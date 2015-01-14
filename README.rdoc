@@ -2,4 +2,15 @@
 
 === First step
 
-put your tokenies. 
+put your tokens in initializers
+
+config.client_id =    ENV['insta_client_id']
+config.client_secret = ENV['insta_client_secret']
+
+=== Second step
+
+run migration and bundles
+
+=== Third step
+
+go to /session/connect to auth through your instagram account and it will redirect to a proper path
